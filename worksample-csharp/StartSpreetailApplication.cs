@@ -27,7 +27,7 @@ namespace MultiValueDictionary
 
             var commandManager = provider.GetRequiredService<ICommandManager>();
             Console.WriteLine("The Multi-Value Dictionary app is a command line application that stores a multivalue dictionary in memory");
-            Console.WriteLine("Please enter the commnds in the list:\nKEYS, MEMBERS, ADD, REMOVE, REMOVEALL, CLEAR, KEYIFEXISTS, MEMBEREXISTS, ITEMS");
+            Console.WriteLine("Please enter the commnds in the list:\nKEYS, MEMBERS, ADD, REMOVE, REMOVEALL, CLEAR, KEYIFEXISTS, MEMBEREXISTS,ALLMEMBERS, ITEMS");
             Console.WriteLine("To quit. Enter STOP/stop");
             bool quitFlag = false;
             while (!quitFlag)
