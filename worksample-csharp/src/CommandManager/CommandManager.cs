@@ -16,13 +16,23 @@ namespace MultiValueDictionary.src.CommandManager
 
         private readonly IMultiValueDataWriteDictionary _multiValueDataWriteDictionary;
 
-        private static readonly ConcurrentDictionary<string, List<string>> _readWriteDictionary = new ConcurrentDictionary<string, List<string>>();
-
-        public CommandManager()
+        public CommandManager(MultiValueReadDictionaryService multiValueDataReadDictionary, MultiValueWriteDictionaryService multiValueDataWriteDictionary)
         {
-            _multiValueDataReadDictionary = new MultiValueReadDictionaryService(_readWriteDictionary);
-            _multiValueDataWriteDictionary = new MultiValueWriteDictionaryService(_readWriteDictionary);
+            _multiValueDataReadDictionary = multiValueDataReadDictionary;
+            _multiValueDataWriteDictionary = multiValueDataWriteDictionary;
         }
+        public CommandManager(IMultiValueDataReadDictionary multiValueDataReadDictionary, IMultiValueDataWriteDictionary multiValueDataWriteDictionary)
+        {
+            _multiValueDataReadDictionary = multiValueDataReadDictionary;
+            _multiValueDataWriteDictionary = multiValueDataWriteDictionary;
+        }
+        /// <summary>
+        /// acts as client to get the requested dictionary operation results
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public MultiValueDictionaryResult MultiValueDictionaryOperation(MultiValueDictionaryCommand input, string key, string value)
         {
             switch(input)

@@ -38,7 +38,7 @@ namespace MultiValueDictionaryTests
         public void GetAllKeys_From_Dictionary()
         {
             _mockMultiValueDataReadDictionary.Setup(x => x.GetAllKeys()).Returns(new MultiValueDictionary.src.Model.MultiValueDictionaryResult($"Empty Dictionary", true));
-            var commandManager = new CommandManager();
+            var commandManager = new CommandManager(_multiValueDataReadDictionary, _multiValueDataWriteDictionary);
             var result = commandManager.MultiValueDictionaryOperation(MultiValueDictionaryCommand.KEYS, "", "");
             Assert.IsTrue(result.IsSuccess);
         }
