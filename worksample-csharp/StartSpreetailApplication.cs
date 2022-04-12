@@ -33,7 +33,7 @@ namespace MultiValueDictionary
             while (!quitFlag)
             {
                 var arguments = Console.ReadLine();
-                if (arguments.ToUpper() == "STOP")
+                if (arguments != null && arguments.ToUpper() == "STOP")
                 {
                     quitFlag = true;
                     return;
